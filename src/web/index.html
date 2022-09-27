@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planner Attempt like a million</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <main id="app">
+        <h1>
+            Meal Planner
+        </h1>
+        <aside>
+            <ul>
+                <li v-for="item in items" draggable="true" v-on:dragstart="dragStart($event, item)">
+                    {{ item.name }}
+                </li>
+            </ul>
+        </aside>
+        <hr>
+        <table class="meal-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th> Sunday</th>
+                    <th> Monday</th>
+                    <th> Tuesday</th>
+                    <th> Wednesday</th>
+                    <th> Thursday</th>
+                    <th> Friday</th>
+                    <th> Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="meal in mealTimes">
+                    <td>{{meal}}</td>
+                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
+                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
+                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
+                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
+                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
+                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
+                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>

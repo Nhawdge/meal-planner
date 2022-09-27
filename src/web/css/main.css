@@ -1,0 +1,17 @@
+main {
+  display: grid;
+}
+aside ul {
+  column-count: 6;
+  column-gap: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+table {
+  width: 100%;
+}
