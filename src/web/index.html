@@ -17,8 +17,8 @@
             Meal Planner
         </h1>
         <aside>
-            <ul>
-                <li v-for="item in items" draggable="true" v-on:dragstart="dragStart($event, item)">
+            <ul class="draggable-list">
+                <li class="meal draggable" v-for="item in items" draggable="true" v-on:dragstart="dragStart($event, item)">
                     {{ item.name }}
                 </li>
             </ul>

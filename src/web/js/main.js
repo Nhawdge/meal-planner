@@ -14,12 +14,12 @@ createApp({
       this.dragPayload = JSON.stringify(payload);
     },
     dragDrop: function (event) {
-      event.target.innerHTML = JSON.parse(this.dragPayload).name;
+      event.target.innerHTML += `<div>${JSON.parse(this.dragPayload).name}</div>`
       this.dragPayload = null;
     },
   },
   mounted: function () {
-    fetch("http://localhost:3000/api/meals?limit=100")
+    fetch("/api/meals?limit=100")
       .then((x) => x.json())
       .then((data) => {
         this.items = data.docs;

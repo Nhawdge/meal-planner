@@ -4,14 +4,32 @@ main {
 aside ul {
   column-count: 6;
   column-gap: 20px;
+  row-gap: 20px;
+  max-height: 300px;
+  overflow: scroll;
 }
 
 table,
 th,
 td {
   border: 1px solid;
+  border-collapse: collapse;
 }
 
 table {
   width: 100%;
+  table-layout: fixed;
+}
+
+.draggable-list {
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+.meal.draggable {
+  background-color: lightblue;
+  cursor: move;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
 }
