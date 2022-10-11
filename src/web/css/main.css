@@ -33,3 +33,18 @@ table {
   padding: 10px;
   margin: 10px;
 }
+
+.menu-grid {
+  display: flex;
+  width: 100%;
+}
+
+.menu-day {
+  flex: 1;
+}
+
+.menu-meal {
+  min-width: 50px;
+  min-height: 70px;
+  border: dotted 1px black;
+}

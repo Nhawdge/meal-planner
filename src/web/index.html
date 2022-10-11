@@ -18,39 +18,32 @@
         </h1>
         <aside>
             <ul class="draggable-list">
-                <li class="meal draggable" v-for="item in items" draggable="true" v-on:dragstart="dragStart($event, item)">
+                <li class="meal draggable" v-for="item in items" draggable="true"
+                    v-on:dragstart="dragStart($event, item)">
                     {{ item.name }}
                 </li>
             </ul>
         </aside>
         <hr>
-        <table class="meal-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th> Sunday</th>
-                    <th> Monday</th>
-                    <th> Tuesday</th>
-                    <th> Wednesday</th>
-                    <th> Thursday</th>
-                    <th> Friday</th>
-                    <th> Saturday</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="meal in mealTimes">
-                    <td>{{meal}}</td>
-                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
-                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
-                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
-                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
-                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
-                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
-                    <td v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()"></td>
-                </tr>
-
-            </tbody>
-        </table>
+        <div class="menu-grid">
+            <div class="menu-day" v-for="day in weeklySchedule">
+                <h3>
+                    {{day.day}}
+                </h3>
+                <div class="menu-meal" v-for="meal in day.meals"  v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()">
+                    <sup>
+                        {{ meal.mealTime }}
+                    </sup>
+                    <div class="meal">
+                        <div v-for="(food, index) in meal.items">
+                            {{ food.name }}
+                            <span v-on:click="removeFood(meal, index)">❌</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button v-on:click="clearMenu">Clear Menu</button>
     </main>
 </body>
 
