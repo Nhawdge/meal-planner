@@ -8,7 +8,7 @@ import Products from './collections/Products';
 import Reviews from './collections/Reviews';
 
 export default buildConfig({
-  serverURL: 'http://localhost:3000',
+  serverURL: 'http://localhost:8080',
   admin: {
     user: Users.slug,
   },
