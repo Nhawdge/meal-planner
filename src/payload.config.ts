@@ -8,7 +8,7 @@ import Products from './collections/Products';
 import Reviews from './collections/Reviews';
 
 export default buildConfig({
-  serverURL: 'http://localhost:8080',
+  serverURL: 'https://meal-planner-5i23.onrender.com',
   admin: {
     user: Users.slug,
   },
