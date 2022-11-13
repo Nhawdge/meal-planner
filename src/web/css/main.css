@@ -48,3 +48,20 @@ table {
   min-height: 70px;
   border: dotted 1px black;
 }
+
+aside ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+
+.meal.draggable {
+  background-color: white;
+  cursor: move;
+  text-align: center;
+  padding: 5px 10px;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+}
