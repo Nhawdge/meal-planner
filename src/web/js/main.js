@@ -5,6 +5,7 @@ createApp({
     return {
       dragPayload: null,
       items: [],
+      shoppingList: [],
       weeklySchedule: [],
       defaultSchedule: [
         {
@@ -87,6 +88,22 @@ createApp({
     clearMenu: function () {
       localStorage.removeItem("menu");
       this.weeklySchedule = this.defaultSchedule;
+    },
+    generateShoppingList: function () {
+      var shoppingList = [];
+      this.weeklySchedule.forEach((day) => {
+        day.meals.forEach((meal) => {
+          meal.items.forEach((item) => {
+            var found = shoppingList.find((x) => x.name == item.name);
+            if (found) {
+              found.quantity += item.quantity;
+            } else {
+              shoppingList.push(item);
+            }
+          });
+        });
+      });
+      this.shoppingList = shoppingList;
     },
   },
   mounted: function () {

@@ -30,7 +30,8 @@
                 <h3>
                     {{day.day}}
                 </h3>
-                <div class="menu-meal" v-for="meal in day.meals"  v-on:drop="dragDrop($event, meal)" v-on:dragover="$event.preventDefault()">
+                <div class="menu-meal" v-for="meal in day.meals" v-on:drop="dragDrop($event, meal)"
+                    v-on:dragover="$event.preventDefault()">
                     <sup>
                         {{ meal.mealTime }}
                     </sup>
@@ -43,7 +44,22 @@
                 </div>
             </div>
         </div>
-        <button v-on:click="clearMenu">Clear Menu</button>
+        <div>
+            <button v-on:click="clearMenu">Clear Menu</button>
+            <button v-on:click="generateShoppingList">Generate Shopping List</button>
+            <div class="shopping-list">
+                <ul>
+                    <li v-for="food in shoppingList">
+                        {{food.name}}
+                        <ul>
+                            <li v-for="item in food.ingredients">
+                                {{item.name}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
 </body>
 
